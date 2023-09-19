@@ -52,13 +52,13 @@ button {
     padding: calc($index * .6) 0;
     border-radius: 3px;
     cursor: pointer;
-    transition: .3s;
-}
+    transition: .5s ease;
 
-button:hover {
-    background: $lightblue;
-    color: #fff;
-    border: 1px solid #fff;
+    &:hover {
+        color: #fff;
+        border: 1px solid #fff;
+        box-shadow: inset 50em 0 0 0 $lightblue;
+    }
 }
 
 li {
@@ -99,6 +99,17 @@ li {
     flex-direction: column;
 }
 
+.show {
+    transition: .8s ease;
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translate(0, -2em);
+}
+
 // default end
 
 // header start
@@ -110,10 +121,28 @@ li {
     padding: 1.5em;
     background: rgba($color: #10101D, $alpha: 0.9);
     color: #fff;
+    z-index: 10;
 
     .header-logo {
+        position: relative;
         text-transform: uppercase;
         font-size: 1.4em;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            height: 0.15em;
+            width: 0;
+            background: $lightblue;
+            transition: .3s ease;
+        }
+
+        &:hover::before {
+            width: 100%;
+            left: 0;
+        }
     }
 
     .header-nav {
@@ -151,20 +180,33 @@ li {
         &__title {
             font-size: 2.4em;
             text-transform: uppercase;
+            transform: translate(25px, 0);
+            opacity: 0;
         }
 
         &__description {
             font-weight: 700;
             margin-top: 2.5em;
             margin-bottom: .5em;
+            transform: translate(50px, 0);
+            opacity: 0;
         }
 
-        &__list li:not(:first-child) {
-            margin-top: 0.5em;
+        &__list {
+            transform: translate(50px, 0);
+            opacity: 0;
+
+            li:not(:first-child) {
+                margin-top: 0.5em;
+
+            }
         }
     }
 
     .main-buttons-block {
+        transform: translate(75px, 0);
+        opacity: 0;
+
         button {
             width: 15%;
             text-transform: uppercase;
@@ -422,11 +464,12 @@ li {
                 display: inline-block;
                 margin: 1em auto 0 auto;
                 cursor: pointer;
-                transition: .3s ease;
+                transition: .5s ease;
 
                 &:hover {
-                    background: $lightblue;
                     color: #fff;
+                    border: 1px solid #fff;
+                    box-shadow: inset 50em 0 0 0 $lightblue;
                 }
             }
         }
@@ -472,5 +515,6 @@ li {
     }
 }
 
-
 // footer end
+
+// animation start

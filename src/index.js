@@ -1,28 +1,49 @@
 import "./assets/style/index.scss";
 
-const selectSingle = document.querySelector('.order-form-select');
-const selectSingle_title = selectSingle.querySelector('.order-form-select__title');
-const selectSingle_labels = selectSingle.querySelectorAll('.order-form-select__label');
+// animations
+window.onload = () => {
+    document.querySelector(".main-text-block__title").classList.add("show");
+    document.querySelector(".main-text-block__description").classList.add("show");
+    document.querySelector(".main-text-block__list").classList.add("show");
+    document.querySelector(".main-buttons-block").classList.add("show");
+}
 
-// Toggle menu
-selectSingle_title.addEventListener('click', () => {
-    if ('active' === selectSingle.getAttribute('data-state')) {
-        selectSingle.setAttribute('data-state', '');
-    } else {
-        selectSingle.setAttribute('data-state', 'active');
-    }
-});
-
-// Close when click to option
-for (let i = 0; i < selectSingle_labels.length; i++) {
-    selectSingle_labels[i].addEventListener('click', (evt) => {
-        selectSingle_title.textContent = evt.target.textContent;
-        selectSingle.setAttribute('data-state', '');
+const hiddenArr = document.querySelectorAll(".hidden");
+function observerCallback(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            change.target.classList.add('show');
+        }
     });
 }
 
-// Reset title
-const reset = document.querySelector('.reset');
-reset.addEventListener('click', () => {
-    selectSingle_title.textContent = selectSingle_title.getAttribute('data-default');
+const observerOptions = { threshold: [0.5] };
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+hiddenArr.forEach(item => {
+    observer.observe(item);
+})
+
+// select
+const orderFormSelect = document.querySelector('.order-form-select');
+const orderFormSelect_title = orderFormSelect.querySelector('.order-form-select__title');
+const orderFormSelect_labels = orderFormSelect.querySelectorAll('.order-form-select__label');
+
+orderFormSelect_title.addEventListener('click', () => {
+    if ('active' === orderFormSelect.getAttribute('data-state')) {
+        orderFormSelect.setAttribute('data-state', '');
+    } else {
+        orderFormSelect.setAttribute('data-state', 'active');
+    }
 });
+
+for (let i = 0; i < orderFormSelect_labels.length; i++) {
+    orderFormSelect_labels[i].addEventListener('click', (evt) => {
+        orderFormSelect_title.textContent = evt.target.textContent;
+        orderFormSelect.setAttribute('data-state', '');
+    });
+}
+
+// range
+const rangeInput = document.querySelector(".order-form-range-block__input");
+const rangeOutput = document.querySelector(".order-form-range-block__value");
+rangeInput.addEventListener("input", () => rangeOutput.textContent = `${rangeInput.value}%`);

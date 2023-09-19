@@ -46,8 +46,8 @@
                     </ul>
                 </div>
                 <div class="main-buttons-block">
-                    <button>Заказать</button>
-                    <button>Подробнее</button>
+                    <button class="animate-button">Заказать</button>
+                    <button class="animate-button">Подробнее</button>
                 </div>
             </div>
         </section>
@@ -57,13 +57,13 @@
         <section id="order-screen">
             <div class="container">
 
-                <div class="order-text-block">
+                <div class="order-text-block hidden">
                     <h1 class="order-text-block__title">Оформление <span class="blue-text">заказа</span></h1>
                     <p class="order-text-block__description">Перед заполнением формы ознакомьтесь с нашей схемой работы!
                     </p>
                 </div>
 
-                <div class="order-features-block">
+                <div class="order-features-block hidden">
                     <div class="order-features-icons d-flex jc-space-between ai-center">
                         <div class="order-features-icons__item">
                             <img src="./assets/img/search.png" alt="feature">
@@ -110,8 +110,7 @@
                     </div>
                 </div>
 
-                <div class="order-form">
-
+                <div class="order-form hidden">
                     <form action="#" class="d-flex jc-space-between">
                         <div class="order-form-select" data-state="">
                             <div class="order-form-select__title" data-default="Выберете тип системы">Выберете тип
@@ -156,7 +155,7 @@
                             Прикрепить файл
                         </label>
 
-                        <input type="submit" name="submit" class="order-form__submit" formmethod="post"
+                        <input type="submit" name="submit" class="order-form__submit animate-button" formmethod="post"
                             value="ОТПРАВИТЬ">
 
                     </form>
