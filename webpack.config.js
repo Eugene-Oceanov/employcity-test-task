@@ -1,5 +1,6 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const copyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -49,7 +50,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: `.assets/fonts/[name].[ext]`,
+                            name: `assets/fonts/[name].[ext]`,
                         }
                     }
                 ]
@@ -59,9 +60,17 @@ module.exports = {
 
     plugins: [
         new htmlWebpackPlugin({
-            title: "Emplycity Test Task",
+            title: "Employcity Test Task",
             filename: "index.html",
             template: path.resolve(__dirname, "src/index.html")
+        }),
+        new copyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/assets/img'),
+                    to: path.resolve(__dirname, 'dist/assets/img')
+                }
+            ]
         })
     ]
 }
