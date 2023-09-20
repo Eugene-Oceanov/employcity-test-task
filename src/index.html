@@ -10,17 +10,38 @@
 </head>
 
 <body>
+    <!-- burger menu start -->
+
+    <div class="burger-menu d-flex">
+
+        <a href="#main-screen" class="burger-menu-logo logo">
+            <h1 class="logo">loremipsum.<span class="blue-text">net</span></h1>
+        </a>
+        <div class="burger-menu-nav">
+            <a href="#" class="burger-menu-nav__item">Бизнес</a>
+            <a href="#" class="burger-menu-nav__item">О нас</a>
+            <a href="#" class="burger-menu-nav__item">Цены</a>
+            <a href="#" class="burger-menu-nav__item">Оформить заказ</a>
+        </div>
+    </div>
+    <div class="burger-menu__btn">
+        <div class="burger-menu__btn-line"></div>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- burger menu end -->
+
     <!-- header start -->
     <header id="header">
         <div class="container d-flex jc-space-between ai-center">
-            <a href="#">
-                <h1 class="header-logo">loremipsum.<span class="blue-text">net</span></h1>
+            <a href="#main-screen">
+                <h1 class="header-logo logo">loremipsum.<span class="blue-text">net</span></h1>
             </a>
             <nav class="header-nav">
-                <a href="" class="header-nav__item">Бизнес</a>
-                <a href="" class="header-nav__item">О нас</a>
-                <a href="" class="header-nav__item">Цены</a>
-                <a href="" class="header-nav__item">Оформить заказ</a>
+                <a href="#" class="header-nav__item">Бизнес</a>
+                <a href="#" class="header-nav__item">О нас</a>
+                <a href="#" class="header-nav__item">Цены</a>
+                <a href="#" class="header-nav__item">Оформить заказ</a>
             </nav>
         </div>
     </header>
@@ -150,12 +171,12 @@
 
                         <input type="file" name="file" id="order-form__file-input" class="order-form__file-input">
                         <label for="order-form__file-input"
-                            class="order-form__file-input--label d-flex jc-center ai-center">
+                            class="order-form__file-input--label d-flex jc-center ai-center button">
                             <img src="./assets/img/add-file.png" alt="add-file">
                             Прикрепить файл
                         </label>
 
-                        <input type="submit" name="submit" class="order-form__submit animate-button" formmethod="post"
+                        <input type="submit" name="submit" class="order-form__submit button" formmethod="post"
                             value="ОТПРАВИТЬ">
 
                     </form>
@@ -194,8 +215,8 @@
                     <img src="./assets/img/footer-mail.png" alt="mail">
                     info@ipsum228.com
                 </a>
-                <a href="vk.com" class="d-flex ai-center">
-                    <img src="./assets/img/vk.png" alt="mail">
+                <a href="www.vk.com" class="d-flex ai-center">
+                    <img src="./assets/img/vk.png" alt="vk">
                     Мы вконтакте
                 </a>
             </div>
@@ -203,7 +224,6 @@
     </footer>
     <!-- footer end -->
 
-    <!-- https://www.figma.com/file/2b7UqUrTs4R8JQoYutlKTu/Test?node-id=1%3A11&mode=dev -->
 </body>
 
 </html>
